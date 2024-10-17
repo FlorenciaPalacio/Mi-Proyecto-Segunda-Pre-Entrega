@@ -30,7 +30,7 @@ router.get("/:pid", async (req, res) => {
             res.json(productoBuscado); 
         }
     } catch (error) {
-        res.status(500).send("Error del servidor, llovera todo el fin de semana"); 
+        res.status(500).send("Error del servidor"); 
     }
 })
 
