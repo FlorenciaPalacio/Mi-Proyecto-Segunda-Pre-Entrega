@@ -8,7 +8,7 @@ router.post("/", async (req, res) => {
         const nuevoCarrito = await manager.crearCarrito(); 
         res.json(nuevoCarrito);
     } catch (error) {
-        res.status(500).send("Error teerrribleeee al crear carrito"); 
+        res.status(500).send("Error al crear carrito"); 
     }
 })
 
