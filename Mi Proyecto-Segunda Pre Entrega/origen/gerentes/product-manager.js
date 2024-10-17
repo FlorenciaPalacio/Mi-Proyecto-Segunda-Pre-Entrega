@@ -27,10 +27,8 @@ class ProductManager {
             return;
         }
 
-        //2) Validacion: 
-
         if (this.products.some(item => item.code === code)) {
-            console.log("El codigo debe ser unico.. o todos moriremos");
+            console.log("El codigo debe ser unico");
             return;
         }
 
@@ -43,12 +41,8 @@ class ProductManager {
             img,
             code,
             stock
-        };
-
-        //4) Metemos el producto al array. 
+        }; 
         this.products.push(nuevoProducto);
-
-        //5) Lo guardamos en el archivo: 
         await this.guardarArchivo(this.products);
     }
 
@@ -78,8 +72,6 @@ class ProductManager {
             console.log("Error al buscar por id", error); 
         }
     }
-
-    //Métodos auxiliares: 
     async leerArchivo() {
         const respuesta = await fs.promises.readFile(this.path, "utf-8");
         const arrayProductos = JSON.parse(respuesta);
@@ -89,8 +81,6 @@ class ProductManager {
     async guardarArchivo(arrayProductos) {
         await fs.promises.writeFile(this.path, JSON.stringify(arrayProductos, null, 2));
     }
-
-    //Método para actualizar productos: 
 
     async updateProduct(id, productoActualizado) {
         try {
